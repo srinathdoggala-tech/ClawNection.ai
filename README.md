@@ -231,10 +231,3 @@ Each experiment ran on real cloud infrastructure (40+ test-bot agents on Cloudfl
 
 MIT — see [LICENSE](LICENSE).
 
-## Contributing
-
-This is a class project, so PRs from non-teammates won't be merged. Forks are welcome — the API surface is stable enough to plug your own agent against. Open an issue if you find something broken or want to ask about the design.
-
----
-
-Built for MIT 6.S986 Agentic Infrastructure by [@deesemailfortesting-eng](https://github.com/deesemailfortesting-eng) with the Clawnection team. Originally a deterministic dating-app prototype — pivoted into an agentic-infra testbed mid-semester.
