@@ -1,0 +1,856 @@
+@import "tailwindcss";
+
+/* Chromia-inspired palette: ink, rose, blush, violet, gold — tuned for dark UI contrast (Apple HIG). */
+:root {
+  --chromia-ink: #401625;
+  --chromia-rose: #d982ab;
+  --chromia-blush: #f2c9dc;
+  --chromia-violet: #8e58a6;
+  --chromia-gold: #d9bf41;
+
+  --background: var(--chromia-ink);
+  --foreground: #fdf7fa;
+  --card: color-mix(in srgb, var(--chromia-ink) 82%, var(--chromia-violet) 18%);
+  --card-strong: color-mix(in srgb, var(--chromia-ink) 70%, var(--chromia-violet) 30%);
+  --muted: color-mix(in srgb, var(--chromia-blush) 45%, var(--chromia-ink) 55%);
+  --border: color-mix(in srgb, var(--chromia-blush) 14%, transparent);
+  --glass-fill: color-mix(in srgb, var(--chromia-blush) 6%, transparent);
+  --glass-fill-strong: color-mix(in srgb, var(--chromia-blush) 11%, transparent);
+  --glass-stroke: color-mix(in srgb, var(--chromia-blush) 18%, transparent);
+  --hardware-radius: 44px;
+  --content-radius: 30px;
+  --control-radius: 18px;
+  --radar-pink: var(--chromia-rose);
+  --radar-orange: var(--chromia-gold);
+  --radar-violet: var(--chromia-violet);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+
+  /* Obsidian-style surfaces (forms, cards) — lifted from ink for readable hierarchy */
+  --surface-base: var(--chromia-ink);
+  --surface-elevated: color-mix(in srgb, var(--chromia-ink) 88%, var(--chromia-violet) 12%);
+  --surface-card: color-mix(in srgb, var(--chromia-ink) 78%, var(--chromia-violet) 22%);
+  --phone-outer-bg: color-mix(in srgb, var(--chromia-ink) 94%, black);
+  --border-subtle: color-mix(in srgb, var(--chromia-blush) 10%, transparent);
+  --border-strong: color-mix(in srgb, var(--chromia-blush) 22%, transparent);
+  --text-primary: #fdf7fa;
+  --text-secondary: color-mix(in srgb, var(--chromia-blush) 82%, white);
+  --text-muted: color-mix(in srgb, var(--chromia-blush) 52%, var(--chromia-ink));
+  --accent: var(--chromia-rose);
+  --accent-soft: color-mix(in srgb, var(--chromia-rose) 22%, transparent);
+  --success: #5ee9b0;
+  --danger-bg: color-mix(in srgb, var(--chromia-rose) 14%, transparent);
+  --danger-border: color-mix(in srgb, var(--chromia-rose) 42%, transparent);
+  --danger-text: color-mix(in srgb, var(--chromia-blush) 92%, white);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "fiona", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  color-scheme: dark;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--chromia-violet) 45%, transparent);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--chromia-gold) 92%, white);
+  outline-offset: 3px;
+}
+
+.phone-shell {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--chromia-rose) 28%, transparent), transparent 26rem),
+    radial-gradient(circle at bottom right, color-mix(in srgb, var(--chromia-violet) 26%, transparent), transparent 24rem),
+    radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--chromia-gold) 12%, transparent), transparent 20rem),
+    var(--chromia-ink);
+  padding: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+}
+
+.phone-frame {
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at 50% -4rem, color-mix(in srgb, var(--chromia-blush) 14%, transparent), transparent 13rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--chromia-blush) 6%, transparent), transparent),
+    var(--background);
+  color: var(--foreground);
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
+@media (min-width: 520px) {
+  .phone-shell {
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .phone-frame {
+    width: min(100%, 430px);
+    min-height: min(860px, calc(100dvh - 48px));
+    max-height: calc(100dvh - 48px);
+    overflow: auto;
+    border: 1px solid var(--glass-stroke);
+    border-radius: var(--hardware-radius);
+    box-shadow:
+      0 34px 100px color-mix(in srgb, var(--chromia-ink) 65%, black),
+      inset 0 1px 0 color-mix(in srgb, var(--chromia-blush) 12%, transparent);
+  }
+}
+
+.screen-padding {
+  padding: calc(20px + var(--safe-top)) 18px calc(30px + var(--safe-bottom));
+}
+
+.ios-status-bar {
+  display: flex;
+  min-height: 22px;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(12px + var(--safe-top)) 24px 0;
+  color: color-mix(in srgb, var(--chromia-blush) 72%, transparent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.ios-home-indicator {
+  position: sticky;
+  bottom: max(8px, var(--safe-bottom));
+  z-index: 20;
+  width: 132px;
+  height: 5px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--chromia-blush) 38%, transparent);
+}
+
+.liquid-glass {
+  border: 1px solid var(--glass-stroke);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.045)),
+    var(--glass-fill);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 54px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(28px) saturate(135%);
+  -webkit-backdrop-filter: blur(28px) saturate(135%);
+}
+
+.hierarchy-surface {
+  position: relative;
+  border-radius: calc(var(--content-radius) + 8px);
+  padding: 1rem;
+}
+
+.hierarchy-surface::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--chromia-rose) 22%, transparent), transparent 13rem),
+    radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--chromia-gold) 14%, transparent), transparent 12rem);
+  content: "";
+  filter: blur(1px);
+}
+
+.obsidian-card {
+  border: 1px solid var(--glass-stroke);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.045)),
+    var(--glass-fill);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 18px 50px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(24px) saturate(128%);
+  -webkit-backdrop-filter: blur(24px) saturate(128%);
+}
+
+.obsidian-panel {
+  border: 1px solid var(--glass-stroke);
+  background: var(--glass-fill);
+  backdrop-filter: blur(24px) saturate(128%);
+  -webkit-backdrop-filter: blur(24px) saturate(128%);
+}
+
+.radar-gradient {
+  background: linear-gradient(135deg, var(--chromia-rose), var(--chromia-violet));
+}
+
+.claw-text-gradient {
+  background: linear-gradient(135deg, var(--chromia-blush), var(--chromia-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.field {
+  width: 100%;
+  min-height: 48px;
+  border-radius: var(--control-radius);
+  border: 1px solid var(--glass-stroke);
+  background: color-mix(in srgb, var(--chromia-blush) 9%, transparent);
+  padding: 0.75rem 0.95rem;
+  color: var(--foreground);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.field::placeholder {
+  color: color-mix(in srgb, var(--chromia-blush) 42%, transparent);
+}
+
+.field:focus {
+  border-color: color-mix(in srgb, var(--chromia-gold) 85%, white);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--chromia-gold) 22%, transparent);
+  background: var(--glass-fill-strong);
+}
+
+select.field option {
+  background: var(--chromia-ink);
+  color: var(--foreground);
+}
+
+/*
+ * Native date input — relies on the system date picker (the iOS wheel picker
+ * on iPhone, the OS calendar widget elsewhere). We just style the visible
+ * field to fit the dark theme and invert the calendar glyph so it shows up
+ * on the dark background.
+ */
+.date-field {
+  appearance: none;
+  -webkit-appearance: none;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.date-field::-webkit-date-and-time-value {
+  text-align: left;
+  min-height: 1.5em;
+}
+
+.date-field::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.2);
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.date-field::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.date-field::-webkit-datetime-edit {
+  color: #ffffff;
+}
+
+.date-field::-webkit-datetime-edit-fields-wrapper {
+  color: #ffffff;
+}
+
+.date-field:invalid::-webkit-datetime-edit,
+.date-field:placeholder-shown::-webkit-datetime-edit {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/*
+ * The date trigger is the visible button. The actual <input type="date"> is
+ * sr-only and is opened via showPicker() when the user taps the trigger. This
+ * stops the iOS / Chrome date picker from popping up the moment the screen
+ * mounts.
+ */
+.date-trigger {
+  cursor: pointer;
+}
+
+.date-trigger:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.date-trigger:focus-visible {
+  border-color: rgba(255, 122, 24, 0.9);
+  box-shadow: 0 0 0 4px rgba(255, 122, 24, 0.14);
+}
+
+.primary-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--chromia-blush) 28%, transparent);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, white 18%, transparent), transparent 42%),
+    linear-gradient(135deg, var(--chromia-rose), var(--chromia-violet));
+  padding: 0.85rem 1.1rem;
+  color: var(--chromia-ink);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent),
+    0 14px 34px color-mix(in srgb, var(--chromia-violet) 35%, transparent);
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 26%, transparent),
+    0 18px 40px color-mix(in srgb, var(--chromia-violet) 42%, transparent);
+}
+
+.primary-button:active {
+  transform: scale(0.98);
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+.secondary-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--glass-stroke);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055)),
+    var(--glass-fill);
+  padding: 0.85rem 1.1rem;
+  color: var(--foreground);
+  font-weight: 750;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+}
+
+.secondary-button:hover {
+  border-color: color-mix(in srgb, var(--chromia-blush) 32%, transparent);
+  background: color-mix(in srgb, var(--chromia-blush) 10%, transparent);
+}
+
+.secondary-button:active {
+  transform: scale(0.98);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--glass-stroke);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--chromia-blush) 14%, transparent), var(--glass-fill));
+  padding: 0.38rem 0.7rem;
+  color: color-mix(in srgb, var(--chromia-blush) 88%, white);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+/*
+ * The voice orb is the Clawnection logo, blown up: a big red disc with the radar's
+ * concentric rings, a rotating sweep, and pulsing rings emanating outward when
+ * the user is on a live call. It doubles as the "tap to talk" button.
+ */
+.voice-orb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  isolation: isolate;
+  background: transparent;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.voice-orb-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.42), transparent 55%),
+    radial-gradient(circle at 68% 78%, rgba(124, 58, 237, 0.45), transparent 60%),
+    radial-gradient(circle at 50% 50%, #ff4458 0%, #e02038 65%, #b3122a 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -8px 24px rgba(0, 0, 0, 0.35),
+    0 30px 80px rgba(255, 68, 88, 0.45),
+    0 0 60px rgba(255, 122, 24, 0.4);
+  animation: voiceOrbPulse 3.6s ease-in-out infinite;
+}
+
+.voice-orb-radar {
+  position: absolute;
+  inset: 12%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.voice-orb-radar svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.voice-orb-sweep {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: voiceOrbSweep 4.2s linear infinite;
+}
+
+.voice-orb-dot {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: voiceOrbDot 3.6s ease-in-out infinite;
+}
+
+.voice-orb-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: inherit;
+  border: 1.5px solid rgba(255, 68, 88, 0.55);
+  pointer-events: none;
+  animation: voiceOrbRing 3s ease-out infinite;
+  opacity: 0;
+}
+
+.voice-orb-ring:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.voice-orb-ring:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.voice-orb:hover .voice-orb-disc {
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.36),
+    inset 0 -8px 24px rgba(0, 0, 0, 0.32),
+    0 36px 96px rgba(255, 68, 88, 0.55),
+    0 0 80px rgba(255, 122, 24, 0.5);
+}
+
+.voice-orb:active .voice-orb-disc {
+  transform: scale(0.97);
+}
+
+.voice-orb[data-active="true"] .voice-orb-disc {
+  animation-duration: 1.6s;
+}
+
+.voice-orb[data-active="true"] .voice-orb-sweep {
+  animation-duration: 1.8s;
+}
+
+.voice-orb[data-active="true"] .voice-orb-ring {
+  animation-duration: 1.8s;
+}
+
+.voice-orb:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.voice-orb:disabled .voice-orb-disc,
+.voice-orb:disabled .voice-orb-sweep,
+.voice-orb:disabled .voice-orb-ring,
+.voice-orb:disabled .voice-orb-dot {
+  animation-play-state: paused;
+}
+
+@keyframes voiceOrbPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.04);
+    filter: brightness(1.06);
+  }
+}
+
+@keyframes voiceOrbSweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes voiceOrbDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.85;
+  }
+}
+
+@keyframes voiceOrbRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-orb-disc,
+  .voice-orb-sweep,
+  .voice-orb-ring,
+  .voice-orb-dot {
+    animation: none !important;
+  }
+}
+
+/*
+ * Sign in with Apple button — follows Apple's Human Interface Guidelines.
+ *   https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple
+ * Uses max corner radius (pill, equal to half the button height), the system
+ * font, the official Apple logo glyph, a 44pt minimum height, and the standard
+ * black/white treatment with no additional decoration.
+ */
+.apple-sign-in-button {
+  display: inline-flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 9999px;
+  border: none;
+  padding: 0 24px;
+  background: #000000;
+  color: #ffffff;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "SF Pro",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.apple-sign-in-button:hover {
+  opacity: 0.92;
+}
+
+.apple-sign-in-button:active {
+  transform: scale(0.99);
+  opacity: 0.85;
+}
+
+.apple-sign-in-button:focus-visible {
+  outline: 3px solid rgba(0, 122, 255, 0.85);
+  outline-offset: 3px;
+}
+
+.apple-sign-in-button .apple-glyph {
+  width: 16px;
+  height: 18px;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+/*
+ * Profile-photo picker tile. Square, dashed when empty, becomes a framed
+ * cover of the chosen image once one is selected.
+ */
+.photo-picker {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 28px;
+  border: 2px dashed rgba(255, 255, 255, 0.22);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.03)),
+    var(--glass-fill);
+  color: rgba(255, 255, 255, 0.86);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  transition: border-color 140ms ease, transform 140ms ease, background 140ms ease;
+}
+
+.photo-picker:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.photo-picker:active {
+  transform: scale(0.98);
+}
+
+.photo-picker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.photo-picker-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.photo-picker-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 4px 12px rgba(255, 68, 88, 0.35));
+}
+
+.option-tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 60px;
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  border: 1px solid var(--glass-stroke);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.03)),
+    var(--glass-fill);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+  text-align: left;
+  transition: border-color 140ms ease, background 140ms ease, transform 120ms ease;
+}
+
+.option-tile:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.option-tile:active {
+  transform: scale(0.99);
+}
+
+.option-tile[data-selected="true"] {
+  border-color: rgba(255, 122, 24, 0.85);
+  background:
+    linear-gradient(145deg, rgba(255, 68, 88, 0.22), rgba(255, 122, 24, 0.14)),
+    var(--glass-fill);
+  box-shadow: 0 12px 30px rgba(255, 68, 88, 0.22);
+}
+
+.option-tile[data-selected="true"]::after {
+  content: "✓";
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+/*
+ * Three-segment phase progress bar. Each segment fills as the user moves
+ * through the steps inside its phase. Done segments are fully filled with the
+ * brand gradient, active segments fill proportionally, and upcoming segments
+ * stay dim. Designed to feel like checking off accomplishments rather than
+ * counting steps.
+ */
+.phase-progress {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.phase-progress-segment {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+  position: relative;
+}
+
+.phase-progress-segment[data-state="active"] {
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.phase-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--radar-pink), var(--radar-orange));
+  transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.phase-progress-segment[data-state="done"] .phase-progress-fill {
+  width: 100%;
+}
+
+.phase-progress-segment[data-state="active"] .phase-progress-fill {
+  box-shadow: 0 0 14px rgba(255, 68, 88, 0.45);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.input-obsidian {
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-obsidian:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: none;
+  background: linear-gradient(135deg, var(--chromia-rose) 0%, var(--chromia-violet) 100%);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--chromia-ink);
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease, opacity 0.12s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--text-muted);
+  background: var(--surface-elevated);
+}
+
+.card-obsidian {
+  border-radius: 1rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  padding: 1rem 1.1rem;
+}

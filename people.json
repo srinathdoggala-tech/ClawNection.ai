@@ -1,0 +1,252 @@
+[
+  {
+    "id": "person_001",
+    "name": "Gary Vaynerchuk",
+    "headline": "Chairman of VaynerX, CEO of VaynerMedia, Creator & Serial Entrepreneur",
+    "location": "New York, NY",
+    "linkedin": "https://www.linkedin.com/in/garyvaynerchuk",
+    "instagram": "https://www.instagram.com/garyvee",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified directly on garyvaynerchuk.com connect directory."
+  },
+  {
+    "id": "person_002",
+    "name": "Simon Sinek",
+    "headline": "Author & Speaker · The Optimism Company, Start With Why",
+    "location": "New York, NY",
+    "linkedin": "https://www.linkedin.com/in/simonsinek",
+    "instagram": "https://www.instagram.com/simonsinek",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on simonsinek.com official media footer."
+  },
+  {
+    "id": "person_003",
+    "name": "Seth Godin",
+    "headline": "Author, Teacher, Entrepreneur · Akimbo, Seth's Blog",
+    "location": "Hastings-on-Hudson, NY",
+    "linkedin": "https://www.linkedin.com/in/sethgodin",
+    "instagram": "https://www.instagram.com/sethgodin",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on seths.blog and Akimbo publications."
+  },
+  {
+    "id": "person_004",
+    "name": "Reid Hoffman",
+    "headline": "Partner at Greylock, Co-Founder of LinkedIn, Host of Masters of Scale",
+    "location": "San Francisco, CA",
+    "linkedin": "https://www.linkedin.com/in/reidhoffman",
+    "instagram": "https://www.instagram.com/reidhoffman",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on reidhoffman.org and mastersofscale.com."
+  },
+  {
+    "id": "person_005",
+    "name": "Richard Branson",
+    "headline": "Founder at Virgin Group · Global Entrepreneur & Philanthropist",
+    "location": "London, UK",
+    "linkedin": "https://www.linkedin.com/in/rbranson",
+    "instagram": "https://www.instagram.com/richardbranson",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on virgin.com and official social channels."
+  },
+  {
+    "id": "person_006",
+    "name": "Bill Gates",
+    "headline": "Co-chair, Bill & Melinda Gates Foundation · Founder, Breakthrough Energy",
+    "location": "Seattle, WA",
+    "linkedin": "https://www.linkedin.com/in/williamhgates",
+    "instagram": "https://www.instagram.com/thisisbillgates",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on gatesnotes.com and verified personal accounts."
+  },
+  {
+    "id": "person_007",
+    "name": "Arianna Huffington",
+    "headline": "Founder and CEO at Thrive Global · Author & Media Innovator",
+    "location": "New York, NY",
+    "linkedin": "https://www.linkedin.com/in/ariannahuffington",
+    "instagram": "https://www.instagram.com/ariannahuff",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on ariannahuffington.com connect directory."
+  },
+  {
+    "id": "person_008",
+    "name": "Tim Ferriss",
+    "headline": "Author of 5 #1 NYT Bestsellers, Host of The Tim Ferriss Show",
+    "location": "Austin, TX",
+    "linkedin": "https://www.linkedin.com/in/timferriss",
+    "instagram": "https://www.instagram.com/timferriss",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on tim.blog resource channels."
+  },
+  {
+    "id": "person_009",
+    "name": "Guy Kawasaki",
+    "headline": "Chief Evangelist at Canva · Creator of Remarkable People Podcast",
+    "location": "Santa Cruz, CA",
+    "linkedin": "https://www.linkedin.com/in/guykawasaki",
+    "instagram": "https://www.instagram.com/guykawasaki",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on guykawasaki.com social directory."
+  },
+  {
+    "id": "person_010",
+    "name": "Alexis Ohanian",
+    "headline": "Founder & General Partner at Seven Seven Six · Co-Founder of Reddit",
+    "location": "West Palm Beach, FL",
+    "linkedin": "https://www.linkedin.com/in/alexisohanian",
+    "instagram": "https://www.instagram.com/alexisohanian",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on sevensevensix.com and personal public profile."
+  },
+  {
+    "id": "person_011",
+    "name": "Adam Grant",
+    "headline": "Organizational Psychologist at Wharton, Author of Hidden Potential & Think Again",
+    "location": "Philadelphia, PA",
+    "linkedin": "https://www.linkedin.com/in/adammgrant",
+    "instagram": "https://www.instagram.com/adammgrant",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on adamgrant.net and linktr.ee/adammgrant."
+  },
+  {
+    "id": "person_012",
+    "name": "Ray Dalio",
+    "headline": "Founder, CIO Mentor at Bridgewater Associates · Author of Principles",
+    "location": "Greenwich, CT",
+    "linkedin": "https://www.linkedin.com/in/raydalio",
+    "instagram": "https://www.instagram.com/raydalio",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on principles.com connect footer."
+  },
+  {
+    "id": "person_013",
+    "name": "James Clear",
+    "headline": "Author of #1 NYT Bestseller Atomic Habits · Speaker & Habits Researcher",
+    "location": "Columbus, OH",
+    "linkedin": "https://www.linkedin.com/in/jamesclear",
+    "instagram": "https://www.instagram.com/jamesclear",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on jamesclear.com official social links."
+  },
+  {
+    "id": "person_014",
+    "name": "Justin Welsh",
+    "headline": "Solopreneur & Content Strategist · Building One-Person Online Businesses",
+    "location": "Nashville, TN",
+    "linkedin": "https://www.linkedin.com/in/justinwelsh",
+    "instagram": "https://www.instagram.com/thejustinwelsh",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on justinwelsh.me official connect links."
+  },
+  {
+    "id": "person_015",
+    "name": "Codie Sanchez",
+    "headline": "Founder & CEO at Contrarian Thinking · Main Street Small Business Investor",
+    "location": "Austin, TX",
+    "linkedin": "https://www.linkedin.com/in/codiesanchez",
+    "instagram": "https://www.instagram.com/codiesanchez",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on codiesanchez.com and verified podcast channels."
+  },
+  {
+    "id": "person_016",
+    "name": "Alex Hormozi",
+    "headline": "Managing Partner at Acquisition.com · Author of $100M Offers & $100M Leads",
+    "location": "Las Vegas, NV",
+    "linkedin": "https://www.linkedin.com/in/alexhormozi",
+    "instagram": "https://www.instagram.com/hormozi",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on acquisition.com official site."
+  },
+  {
+    "id": "person_017",
+    "name": "Leila Hormozi",
+    "headline": "CEO at Acquisition.com · Scaling $100M+ Portfolios, Culture & Operations",
+    "location": "Las Vegas, NV",
+    "linkedin": "https://www.linkedin.com/in/leilahormozi",
+    "instagram": "https://www.instagram.com/leilahormozi",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on acquisition.com official channels."
+  },
+  {
+    "id": "person_018",
+    "name": "Marie Forleo",
+    "headline": "Host of MarieTV, Founder of B-School · Author of Everything is Figureoutable",
+    "location": "New York, NY",
+    "linkedin": "https://www.linkedin.com/in/marieforleo",
+    "instagram": "https://www.instagram.com/marieforleo",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on marieforleo.com."
+  },
+  {
+    "id": "person_019",
+    "name": "Sophia Amoruso",
+    "headline": "Founder at Trust Fund VC, Founder of Nasty Gal & Girlboss",
+    "location": "Los Angeles, CA",
+    "linkedin": "https://www.linkedin.com/in/sophiaamoruso",
+    "instagram": "https://www.instagram.com/sophiaamoruso",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on linktr.ee/sophiaamoruso."
+  },
+  {
+    "id": "person_020",
+    "name": "Tony Robbins",
+    "headline": "Chairman of Robbins Research International · Author, Strategist & Philanthropist",
+    "location": "Palm Beach, FL",
+    "linkedin": "https://www.linkedin.com/in/officialtonyrobbins",
+    "instagram": "https://www.instagram.com/tonyrobbins",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on tonyrobbins.com."
+  },
+  {
+    "id": "person_021",
+    "name": "Kara Goldin",
+    "headline": "Founder of Hint Inc., Host of The Kara Goldin Show · Author of Undaunted",
+    "location": "San Francisco, CA",
+    "linkedin": "https://www.linkedin.com/in/karagoldin",
+    "instagram": "https://www.instagram.com/karagoldin",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on karagoldin.com."
+  },
+  {
+    "id": "person_022",
+    "name": "Vanessa Van Edwards",
+    "headline": "Lead Behavioral Investigator at Science of People · Author of Captivate",
+    "location": "Austin, TX",
+    "linkedin": "https://www.linkedin.com/in/vanessavanedwards",
+    "instagram": "https://www.instagram.com/vvanedwards",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on scienceofpeople.com."
+  },
+  {
+    "id": "person_023",
+    "name": "Ali Abdaal",
+    "headline": "Author of Feel-Good Productivity · Doctor turned Creator & Educator",
+    "location": "London, UK",
+    "linkedin": "https://www.linkedin.com/in/ali-abdaal",
+    "instagram": "https://www.instagram.com/aliabdaal",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on aliabdaal.com."
+  },
+  {
+    "id": "person_024",
+    "name": "Neil Patel",
+    "headline": "Co-Founder of NP Digital · New York Times Bestselling Author",
+    "location": "Orange County, CA",
+    "linkedin": "https://www.linkedin.com/in/neilkpatel",
+    "instagram": "https://www.instagram.com/neilpatel",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on neilpatel.com."
+  },
+  {
+    "id": "person_025",
+    "name": "Nathan Barry",
+    "headline": "CEO at Kit (formerly ConvertKit) · Author & Creator Economy Advocate",
+    "location": "Boise, ID",
+    "linkedin": "https://www.linkedin.com/in/nathanbarry",
+    "instagram": "https://www.instagram.com/nathanbarry",
+    "verifiedSourcePair": true,
+    "sourceAuditNote": "Official LinkedIn and Instagram verified on nathanbarry.com."
+  }
+]

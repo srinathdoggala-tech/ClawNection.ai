@@ -1,0 +1,49 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Custom entry that delegates fetch to .open-next/worker.js and adds a
+  // scheduled() handler driven by the cron trigger below.
+  "main": "worker-entry.js",
+  "name": "clawnection-agentic",
+  "compatibility_date": "2026-04-26",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "clawnection-agentic"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Wakes up the synthetic test-agent fleet by calling /api/cron-heartbeat
+  // from worker-entry.js. Replaces the GitHub Actions workflow which was
+  // throttled to ~50–60 minute cadence in practice.
+  "triggers": {
+    "crons": ["*/2 * * * *"]
+  },
+  // Keep the workers.dev URL active alongside the custom domain so old
+  // links (and our internal scripts) keep working.
+  // Custom domains (clawnection.com, www.clawnection.com) are managed
+  // via the Cloudflare dashboard rather than in config — adding them
+  // here triggers DNS-record-conflict errors on each deploy.
+  "workers_dev": true,
+  "vars": {
+    "SCORING_WEIGHTS": "{\"baseScore\":50,\"sharedInterestPoints\":6,\"sharedInterestMax\":18,\"sharedValuePoints\":8,\"sharedValueMax\":24,\"intentMatchBonus\":12,\"intentMismatchPenalty\":8,\"commStyleMatchBonus\":8,\"commStyleMismatchPenalty\":4,\"locationBonus\":6,\"ageFitBonus\":6,\"ageMismatchPenalty\":10,\"smokingDealbreaker\":18,\"generalDealbreaker\":12,\"latencyFastBonus\":3,\"latencySlowBonus\":3,\"inconsistentPenalty\":3}"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "clawnection-agentic-db",
+      "database_id": "443c6d03-dbef-41b0-8b34-d78ec074ebe7"
+    }
+  ]
+}
